@@ -11,7 +11,7 @@ import { UserNav } from '../nav/user-nav';
 export function SiteHeader() {
   return (
     <header className='sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60'>
-      <div className='container flex h-16 items-center'>
+      <div className='container flex h-16 items-center mx-auto'>
         <MainNav />
         <div className='hidden flex-1 items-center justify-center px-2 md:flex'>
           <div className='relative w-full max-w-md'>
