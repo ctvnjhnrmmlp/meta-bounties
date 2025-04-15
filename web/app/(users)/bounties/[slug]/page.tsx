@@ -282,6 +282,8 @@ export default async function Page({
                   <Image
                     src={bounty.creator.image || '/placeholder.svg'}
                     alt={bounty.creator.name}
+                    width={100}
+                    height={100}
                     className='h-full w-full object-cover'
                   />
                 </div>
