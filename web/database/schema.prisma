@@ -22,14 +22,14 @@ enum SubmissionStatus {
 
 model User {
   id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  wallet        String       @unique
   name          String?
   email         String?      @unique
   image         String?
-  wallet        String       @unique
   bio           String?
-  emailVerified DateTime?
   createdAt     DateTime     @default(now())
   updatedAt     DateTime     @updatedAt
+  emailVerified DateTime?
   accounts      Account[]
   sessions      Session[]
   bounties      Bounty[]
@@ -117,10 +117,10 @@ model Chain {
 
 model Reward {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  amount       Float
   tokenSymbol  String
   tokenName    String
   chainId      String   @db.ObjectId
+  amount       Float
   tokenAddress String?
   Bounty       Bounty[]
 }
