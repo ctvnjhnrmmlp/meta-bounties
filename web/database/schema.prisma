@@ -7,47 +7,62 @@ generator client {
   provider = "prisma-client-js"
 }
 
+enum BountyStatus {
+  OPEN
+  IN_REVIEW
+  CLOSED
+  COMPLETED
+}
+
+enum SubmissionStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
 model User {
-  id            String          @id @default(auto()) @map("_id") @db.ObjectId
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
   name          String?
-  email         String?         @unique
-  emailVerified DateTime?
+  email         String?      @unique
   image         String?
+  wallet        String       @unique
+  bio           String?
+  emailVerified DateTime?
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
   accounts      Account[]
   sessions      Session[]
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  bounties      Bounty[]
+  submissions   Submission[]
 }
 
 model Account {
-  id                String  @id @default(auto()) @map("_id") @db.ObjectId
-  userId            String  @db.ObjectId
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String   @db.ObjectId
   type              String
   provider          String
   providerAccountId String
-  refresh_token     String? @db.String
-  access_token      String? @db.String
-  expires_at        Int?
+  refresh_token     String?  @db.String
+  access_token      String?  @db.String
   token_type        String?
   scope             String?
-  id_token          String? @db.String
+  id_token          String?  @db.String
   session_state     String?
+  expires_at        Int?
   createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
 
 model Session {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  sessionToken String   @unique
   userId       String   @db.ObjectId
+  sessionToken String   @unique
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {
@@ -57,4 +72,55 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Bounty {
+  id          String       @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String       @db.ObjectId
+  title       String
+  description String
+  chainId     String       @db.ObjectId
+  rewardId    String       @db.ObjectId
+  tags        String[]
+  deadline    DateTime
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  status      BountyStatus @default(OPEN)
+  user        User         @relation(fields: [userId], references: [id])
+  chain       Chain        @relation(fields: [chainId], references: [id])
+  reward      Reward       @relation(fields: [rewardId], references: [id])
+  submissions Submission[]
+}
+
+model Submission {
+  id        String           @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String           @db.ObjectId
+  bountyId  String           @db.ObjectId
+  url       String
+  notes     String?
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+  status    SubmissionStatus @default(PENDING)
+  user      User             @relation(fields: [userId], references: [id])
+  bounty    Bounty           @relation(fields: [bountyId], references: [id])
+}
+
+model Chain {
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  symbol   String
+  logoUrl  String?
+  rpcUrl   String?
+  explorer String?
+  bounties Bounty[]
+}
+
+model Reward {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  amount       Float
+  tokenSymbol  String
+  tokenName    String
+  chainId      String   @db.ObjectId
+  tokenAddress String?
+  Bounty       Bounty[]
 }
