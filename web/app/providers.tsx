@@ -2,6 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SessionProvider } from 'next-auth/react';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { ReactNode } from 'react';
 
 const query = new QueryClient({
@@ -15,7 +16,15 @@ const query = new QueryClient({
 export default function Providers({ children }: { children: ReactNode }) {
   return (
     <SessionProvider>
-      <QueryClientProvider client={query}>{children}</QueryClientProvider>
+      <QueryClientProvider client={query}>
+        <NextThemesProvider
+          attribute='class'
+          defaultTheme='system'
+          enableSystem
+        >
+          {children}
+        </NextThemesProvider>
+      </QueryClientProvider>
     </SessionProvider>
   );
 }
