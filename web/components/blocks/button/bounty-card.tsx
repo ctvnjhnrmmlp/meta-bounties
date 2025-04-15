@@ -44,7 +44,7 @@ const BountyCard = ({
 
   return (
     <Link
-      href={`/bounty/${encodeURIComponent(
+      href={`/bounties/${encodeURIComponent(
         title.toLowerCase().replace(/ /g, '-')
       )}`}
     >

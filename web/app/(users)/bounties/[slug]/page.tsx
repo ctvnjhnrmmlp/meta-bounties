@@ -52,7 +52,7 @@ export default function Page({
   };
 
   return (
-    <main className='container py-6'>
+    <main className='container py-6 mx-auto'>
       <div className='grid gap-6 lg:grid-cols-3'>
         <div className='lg:col-span-2'>
           <div className='flex flex-col gap-2'>
