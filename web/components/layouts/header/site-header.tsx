@@ -22,7 +22,7 @@ export function SiteHeader() {
         <div className='flex flex-1 items-center justify-end space-x-4'>
           <nav className='flex items-center space-x-2'>
             <Button variant='outline' asChild>
-              <Link href='/create-bounty'>Create Bounty</Link>
+              <Link href='/bounties/create'>Create Bounty</Link>
             </Button>
             <ModeToggle />
             <UserNav />
