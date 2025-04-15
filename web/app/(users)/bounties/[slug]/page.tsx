@@ -16,6 +16,7 @@ import {
   FileText,
   Users,
 } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Page({
@@ -50,6 +51,8 @@ export default function Page({
       image: '/placeholder.svg',
     },
   };
+
+  console.log(params);
 
   return (
     <main className='container py-6 mx-auto'>
@@ -132,7 +135,7 @@ export default function Page({
                   </CardHeader>
                   <CardContent>
                     <p className='text-sm text-muted-foreground mb-2'>
-                      I've completed the marketplace with support for both
+                      Ive completed the marketplace with support for both
                       chains. The UI is responsive and includes all requested
                       features.
                     </p>
@@ -162,7 +165,7 @@ export default function Page({
                   </CardHeader>
                   <CardContent>
                     <p className='text-sm text-muted-foreground mb-2'>
-                      I've implemented the marketplace with basic functionality
+                      Ive implemented the marketplace with basic functionality
                       for both chains. Still working on optimizing the UI and
                       adding some additional features.
                     </p>
@@ -212,7 +215,7 @@ export default function Page({
                   </CardHeader>
                   <CardContent>
                     <p className='text-sm text-muted-foreground'>
-                      We've extended the deadline by 2 days to allow for more
+                      Weve extended the deadline by 2 days to allow for more
                       comprehensive submissions. Please ensure cross-chain
                       functionality is thoroughly tested.
                     </p>
@@ -268,7 +271,7 @@ export default function Page({
             <CardContent>
               <div className='flex items-center gap-3'>
                 <div className='h-10 w-10 rounded-full overflow-hidden'>
-                  <img
+                  <Image
                     src={bounty.creator.image || '/placeholder.svg'}
                     alt={bounty.creator.name}
                     className='h-full w-full object-cover'

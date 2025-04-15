@@ -134,8 +134,8 @@ export default function Page() {
                             />
                           </FormControl>
                           <FormDescription>
-                            Provide a detailed description of what you're
-                            looking for
+                            Provide a detailed description of what youre looking
+                            for
                           </FormDescription>
                           <FormMessage />
                         </FormItem>
