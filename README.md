@@ -1,4 +1,4 @@
-# Bounties/Earn (Aptos)
+# Meta Bounties
 
 _A Chain-Agnostic Bounty & Earn dApp — Inspired by SuperTeam Earn_
 
