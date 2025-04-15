@@ -1,5 +1,6 @@
 'use client';
 
+import { auth } from '@/auth';
 import { DatePicker } from '@/components/blocks/popover/date-picker';
 import { Button } from '@/components/ui/button';
 import {
@@ -29,6 +30,7 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { redirect } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
@@ -62,7 +64,9 @@ const formSchema = z.object({
   }),
 });
 
-export default function Page() {
+export default async function Page() {
+  const session = await auth();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -76,6 +80,10 @@ export default function Page() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+  }
+
+  if (!session) {
+    return redirect('/signin');
   }
 
   return (

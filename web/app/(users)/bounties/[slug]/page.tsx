@@ -1,3 +1,4 @@
+import { auth } from '@/auth';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -18,12 +19,15 @@ import {
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
-export default function Page({
+export default async function Page({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const session = await auth();
+
   const bounty = {
     title: 'Build a Cross-Chain NFT Marketplace',
     description:
@@ -51,6 +55,10 @@ export default function Page({
       image: '/placeholder.svg',
     },
   };
+
+  if (!session) {
+    return redirect('/signin');
+  }
 
   console.log(params);
 

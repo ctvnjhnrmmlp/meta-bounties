@@ -1,3 +1,4 @@
+import { auth } from '@/auth';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -17,8 +18,15 @@ import {
   Globe,
   Twitter,
 } from 'lucide-react';
+import { redirect } from 'next/navigation';
 
-export default function Page() {
+export default async function Page() {
+  const session = await auth();
+
+  if (!session) {
+    return redirect('/signin');
+  }
+
   return (
     <main className='container py-6 mx-auto'>
       <div className='grid gap-6 lg:grid-cols-3'>
