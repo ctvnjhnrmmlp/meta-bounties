@@ -25,7 +25,7 @@ export function MainNav() {
           Explore
         </Link>
         <Link
-          href='/my-bounties'
+          href='/bounties'
           className={cn(
             'transition-colors hover:text-foreground/80',
             pathname?.startsWith('/my-bounties')
