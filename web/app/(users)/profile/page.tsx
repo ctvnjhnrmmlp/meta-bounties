@@ -18,7 +18,7 @@ import {
   Twitter,
 } from 'lucide-react';
 
-export default function ProfilePage() {
+export default function Page() {
   return (
     <main className='container py-6'>
       <div className='grid gap-6 lg:grid-cols-3'>
