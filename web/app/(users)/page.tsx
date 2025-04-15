@@ -14,7 +14,7 @@ export default async function Home() {
 
   return (
     <main className='container py-6'>
-      <div className='flex flex-col gap-4 md:flex-row md:items-center md:justify-between'>
+      <div className='flex flex-col gap-4 w-full md:flex-row md:items-center md:justify-between'>
         <div>
           <h1 className='text-3xl font-bold tracking-tight'>
             Explore Bounties
@@ -28,7 +28,6 @@ export default async function Home() {
           <CategoryFilter />
         </div>
       </div>
-
       <Tabs defaultValue='all' className='mt-6'>
         <TabsList>
           <TabsTrigger value='all'>All Bounties</TabsTrigger>

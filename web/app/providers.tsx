@@ -18,9 +18,10 @@ export default function Providers({ children }: { children: ReactNode }) {
     <SessionProvider>
       <QueryClientProvider client={query}>
         <NextThemesProvider
+          enableSystem
+          disableTransitionOnChange
           attribute='class'
           defaultTheme='system'
-          enableSystem
         >
           {children}
         </NextThemesProvider>
