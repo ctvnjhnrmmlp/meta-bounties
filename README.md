@@ -4,7 +4,7 @@ _A Chain-Agnostic Bounty & Earn dApp — Inspired by SuperTeam Earn_
 
 ## Overview
 
-Bounties/Earn is a decentralized application (dApp) designed to help users discover and participate in bounties, grants, tasks, and earning opportunities across multiple blockchain ecosystems. Unlike most platforms that are locked into a single chain, this platform is **chain-agnostic** — starting with **Aptos**, and expanding support for other ecosystems like Ethereum, Solana, and more.
+Meta Bounties is a decentralized application (dApp) designed to help users discover and participate in bounties, grants, tasks, and earning opportunities across multiple blockchain ecosystems. Unlike most platforms that are locked into a single chain, this platform is **chain-agnostic** — starting with **Aptos**, and expanding support for other ecosystems like Ethereum, Solana, and more.
 
 ## Why Bounties/Earn?
 
