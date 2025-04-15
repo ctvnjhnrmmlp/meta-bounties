@@ -13,7 +13,7 @@ export default async function Home() {
   }
 
   return (
-    <main className='container py-6'>
+    <main className='container py-6 mx-auto'>
       <div className='flex flex-col gap-4 w-full md:flex-row md:items-center md:justify-between'>
         <div>
           <h1 className='text-3xl font-bold tracking-tight'>
