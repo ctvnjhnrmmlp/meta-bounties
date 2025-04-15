@@ -79,7 +79,7 @@ export default function Page() {
   }
 
   return (
-    <main className='container py-6'>
+    <main className='container py-6 mx-auto'>
       <div className='mx-auto max-w-3xl'>
         <h1 className='text-3xl font-bold tracking-tight mb-6'>
           Create a Bounty
