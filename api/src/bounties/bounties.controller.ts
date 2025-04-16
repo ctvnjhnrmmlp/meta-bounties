@@ -1,34 +1,58 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Patch,
+  Post,
+} from '@nestjs/common';
+import { Prisma } from 'generated/prisma';
 import { BountiesService } from './bounties.service';
-import { CreateBountyDto } from './dto/create-bounty.dto';
-import { UpdateBountyDto } from './dto/update-bounty.dto';
 
 @Controller('bounties')
 export class BountiesController {
   constructor(private readonly bountiesService: BountiesService) {}
 
   @Post()
-  create(@Body() createBountyDto: CreateBountyDto) {
-    return this.bountiesService.create(createBountyDto);
+  create(@Body() createBountyInput: Prisma.BountyCreateInput) {
+    return this.bountiesService.create(createBountyInput);
   }
 
   @Get()
   findAll() {
-    return this.bountiesService.findAll();
+    return this.bountiesService.bounties({
+      skip: 0,
+      take: 100,
+      cursor: {
+        id: '',
+      },
+      where: {},
+      orderBy: {
+        id: 'asc',
+      },
+    });
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.bountiesService.findOne(+id);
+    return this.bountiesService.bounty({
+      id,
+    });
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBountyDto: UpdateBountyDto) {
-    return this.bountiesService.update(+id, updateBountyDto);
+  update(@Param('id') id: string, @Body() data: Prisma.BountyUpdateInput) {
+    return this.bountiesService.updateBounty({
+      where: { id },
+      data,
+    });
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.bountiesService.remove(+id);
+    return this.bountiesService.deleteBounty({
+      id,
+    });
   }
 }
