@@ -24,9 +24,7 @@ export class BountiesController {
     return this.bountiesService.bounties({
       skip: 0,
       take: 100,
-      cursor: {
-        id: '',
-      },
+      cursor: undefined,
       where: {},
       orderBy: {
         id: 'asc',

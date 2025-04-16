@@ -24,9 +24,7 @@ export class UsersController {
     return this.usersService.users({
       skip: 0,
       take: 1,
-      cursor: {
-        id: '',
-      },
+      cursor: undefined,
       where: {},
     });
   }
