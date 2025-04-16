@@ -25,11 +25,11 @@ Our philosophy is simple: **talent is everywhere — opportunity should be too**
 
 ## Features
 
-- 🔗 **Multi-chain Support** — Start with Aptos, expand to Ethereum, Solana, and more
-- 🧑‍💻 **Contributor Profiles** — Showcase completed bounties and earnings
-- 🛠️ **Project Dashboards** — Manage bounties, rewards, and submissions with ease
-- 🔐 **On-chain Verification** — Submit proof-of-work using blockchain-native mechanisms
-- 🪙 **Token Rewards** — Earn in native tokens from multiple ecosystems
+- **Multi-chain Support** — Start with Aptos, expand to Ethereum, Solana, and more
+- **Contributor Profiles** — Showcase completed bounties and earnings
+- **Project Dashboards** — Manage bounties, rewards, and submissions with ease
+- **On-chain Verification** — Submit proof-of-work using blockchain-native mechanisms
+- **Token Rewards** — Earn in native tokens from multiple ecosystems
 
 ## Roadmap
 
