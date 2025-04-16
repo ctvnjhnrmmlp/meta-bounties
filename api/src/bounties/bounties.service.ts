@@ -1,26 +1,56 @@
 import { Injectable } from '@nestjs/common';
-import { CreateBountyDto } from './dto/create-bounty.dto';
-import { UpdateBountyDto } from './dto/update-bounty.dto';
+import { Bounty, Prisma } from 'generated/prisma';
+import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class BountiesService {
-  create(createBountyDto: CreateBountyDto) {
-    return 'This action adds a new bounty';
+  constructor(private prisma: PrismaService) {}
+
+  async bounty(
+    bountyWhereUniqueInput: Prisma.BountyWhereUniqueInput,
+  ): Promise<Bounty | null> {
+    return this.prisma.bounty.findUnique({
+      where: bountyWhereUniqueInput,
+    });
   }
 
-  findAll() {
-    return `This action returns all bounties`;
+  async bounties(params: {
+    skip?: number;
+    take?: number;
+    cursor?: Prisma.BountyWhereUniqueInput;
+    where?: Prisma.BountyWhereInput;
+    orderBy?: Prisma.UserOrderByWithRelationInput;
+  }): Promise<Bounty[]> {
+    const { skip, take, cursor, where, orderBy } = params;
+    return this.prisma.bounty.findMany({
+      skip,
+      take,
+      cursor,
+      where,
+      orderBy,
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} bounty`;
+  create(data: Prisma.BountyCreateInput) {
+    return this.prisma.bounty.create({
+      data,
+    });
   }
 
-  update(id: number, updateBountyDto: UpdateBountyDto) {
-    return `This action updates a #${id} bounty`;
+  async updateBounty(params: {
+    where: Prisma.BountyWhereUniqueInput;
+    data: Prisma.BountyUpdateInput;
+  }): Promise<Bounty> {
+    const { where, data } = params;
+    return this.prisma.bounty.update({
+      data,
+      where,
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} bounty`;
+  async deleteBounty(where: Prisma.BountyWhereUniqueInput): Promise<Bounty> {
+    return this.prisma.bounty.delete({
+      where,
+    });
   }
 }
