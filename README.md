@@ -2,34 +2,53 @@
 
 _A Chain-Agnostic Bounty & Earn dApp — Inspired by SuperTeam Earn_
 
+> Discover, contribute, and earn across multiple blockchain ecosystems — all in one place.
+
 ## Overview
 
-Meta Bounties is a decentralized application (dApp) designed to help users discover and participate in bounties, grants, tasks, and earning opportunities across multiple blockchain ecosystems. Unlike most platforms that are locked into a single chain, this platform is **chain-agnostic** — starting with **Aptos**, and expanding support for other ecosystems like Ethereum, Solana, and more.
+**Meta Bounties** is a decentralized application (dApp) that helps users discover and participate in bounties, grants, tasks, and earning opportunities across different blockchain ecosystems. Most current solutions are locked into a single chain — but Meta Bounties is **chain-agnostic** by design. It starts with **Aptos** and aims to support **Ethereum**, **Solana**, and beyond.
 
-## Why Bounties/Earn?
+Whether you're a contributor, project owner, or community builder, Meta Bounties offers a seamless, cross-chain platform to **earn, build, and showcase your contributions**.
 
-Currently, bounty and earn platforms are usually siloed within a specific blockchain ecosystem, limiting opportunities for contributors and builders. Bounties/Earn aims to solve this by:
+## Why Meta Bounties?
 
-- Aggregating bounties across multiple chains
-- Enabling seamless participation regardless of the chain
-- Boosting visibility for ecosystem-specific opportunities
-- Offering a unified experience for contributors
+Most bounty platforms today are isolated to one blockchain. That limits contributors and makes it harder for projects to attract a diverse range of talent.
+
+Meta Bounties solves this by:
+
+- Aggregating opportunities across ecosystems
+- Enabling frictionless participation regardless of chain
+- Boosting visibility for ecosystem-specific bounties
+- Providing a consistent experience for users and projects
+
+Our philosophy is simple: **talent is everywhere — opportunity should be too**.
 
 ## Features
 
-- **Multi-chain Support:** View and apply to bounties across Aptos and other ecosystems
-- **Contributor Profiles:** Showcase your completed tasks and earnings
-- **Project Dashboard:** Bounty creators can manage tasks, rewards, and submissions
-- **On-chain Verification:** Proof-of-work or delivery using blockchain-native features
-- **Token Rewards:** Receive bounties in native tokens from multiple chains
+- 🔗 **Multi-chain Support** — Start with Aptos, expand to Ethereum, Solana, and more
+- 🧑‍💻 **Contributor Profiles** — Showcase completed bounties and earnings
+- 🛠️ **Project Dashboards** — Manage bounties, rewards, and submissions with ease
+- 🔐 **On-chain Verification** — Submit proof-of-work using blockchain-native mechanisms
+- 🪙 **Token Rewards** — Earn in native tokens from multiple ecosystems
 
 ## Roadmap
 
-- [x] MVP on Aptos
-- [ ] Add Ethereum & Solana integration
-- [ ] Contributor reputation system
-- [ ] Cross-chain bounty settlement
-- [ ] DAO governance for community bounties
+- [x] MVP launched on Aptos
+- [ ] Integrate Ethereum & Solana
+- [ ] Build Contributor Reputation System
+- [ ] Enable Cross-chain Bounty Settlement
+- [ ] DAO Governance for Community-led Bounties
+
+## Tech Stack
+
+**Blockchain:**
+`Move` · `Aptos` · _(future)_ `Solidity` · `Web3.js` · `Ethers.js`
+
+**Web:**
+`Next.js` · `React` · `Tailwind CSS`
+
+**Other:**
+`Node.js` · `Vercel` · `Docker` · `GitHub Actions`
 
 ## Getting Started
 
@@ -48,29 +67,52 @@ npm install
 npm run dev
 ```
 
-### Environment Variables
+## Environment Variables
 
-Create a `.env` file in the root with:
+Create a `.env` file at the root with the following:
 
 ```env
-NEXT_PUBLIC_APTOS_NODE_URL=...
-NEXT_PUBLIC_CONTRACT_ADDRESS=...
+NEXT_PUBLIC_APTOS_NODE_URL=https://...
+NEXT_PUBLIC_CONTRACT_ADDRESS=0x...
 ```
+
+## Usage
+
+```bash
+# Start development server
+npm run dev
+```
+
+## Architecture
+
+```
+[Frontend (Next.js/React)] -> [Backend (Nest)] -> [Aptos Blockchain (Move Contracts)] -> [Multi-chain Expansion]
+```
+
+## Deployment
+
+- **Frontend:** Deployed on [Vercel](https://vercel.com)
+- **Smart Contract:**
+  - Network: Aptos (Mainnet/Testnet)
+  - Contract Address: `0x...`
+  - Explorer: [View on Aptos Explorer](https://explorer.aptoslabs.com)
 
 ## Contributing
 
-We welcome contributions! To get started:
+We welcome and appreciate contributions!
 
-1. Fork the repo
-2. Create your feature branch (`git checkout -b feature/feature-name`)
+1. Fork this repo
+2. Create your feature branch: `git checkout -b feature/your-feature`
 3. Commit your changes
-4. Push to the branch (`git push origin feature/feature-name`)
-5. Create a pull request
+4. Push to your branch: `git push origin feature/your-feature`
+5. Open a Pull Request
 
 ## License
 
-[MIT License](LICENSE)
+This project is licensed under the [MIT License](LICENSE).
 
 ## Credits
 
-Inspired by [SuperTeam Earn](https://earn.superteam.fun/) and powered by the Aptos ecosystem.
+- Inspired by [SuperTeam Earn](https://earn.superteam.fun)
+- Built by the Meta Bounties team
+- Powered by the [Aptos](https://aptos.dev) ecosystem
