@@ -1,0 +1,25 @@
+{
+  "name": "@workspace/auth",
+  "type": "module",
+  "private": true,
+  "main": "./auth.ts",
+  "types": "./auth.ts",
+  "exports": {
+    ".": {
+      "import": "./auth.ts",
+      "types": "./auth.ts"
+    }
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "next-auth": "5.0.0-beta.27"
+  },
+  "devDependencies": {
+    "@workspace/eslint-config": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
+    "typescript": "^5.7.3"
+  }
+}
